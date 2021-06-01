@@ -2,7 +2,7 @@
  * @Author: gerthwang
  * @Date:   2021-05-31 10:17:33
  * @Last Modified by:   Gerth Wang
- * @Last Modified time: 2021-06-01 12:55:06
+ * @Last Modified time: 2021-06-01 18:37:13
  */
 let Mock = require("mockjs");
 let Random = Mock.Random;
@@ -25,32 +25,31 @@ module.exports = () => {
     let fnish = Mock.mock({
       "fnish|1": ["matter","glossy"],
     });
+    let l = Random.int(0,100);
+    let a = Random.int(-128,128);
+    let b = Random.int(-128,128);
     var id1 =  Random.guid();
     var config =
 
       part1.part === "hair"
         ? Mock.mock({
             "shades|1": [
-              [89, -119, -100],
-              [100, 89, 121],
-              [50, 21, 54],
-              [23, 43, 76],
-              [54, 43, 76],
+              [l,a,b],
             ],
-            "shape":[1,2,3,4,5,6,7],
             "shining|1-100": 100,
             "grey|1-100": 50,
             "strength|1-100": 100,
+            "shapes":[1,2,3,4,5,6,7],
             ...textures,
             ...fnish
           })
         : part1.part === "eyeshadow"
         ? Mock.mock({
             "shades|9": [[123,234,145]],
-            "shape":[1,2,3,4,5,6,7],
             "shining|1-100": 100,
             "grey|1-100": 50,
             "strength|1-100": 100,
+            "shapes":[1,2,3,4,5,6,7],
             ...textures,
             ...fnish
           })
